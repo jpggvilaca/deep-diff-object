@@ -1,0 +1,26 @@
+{
+  "name": "pkg",
+  "version": "1.0.0",
+  "description": "The purpose of this package is to deep diff two objects. This will, compare two objects and then output an object with all the changes between them.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpggvilaca/obj-diff.git"
+  },
+  "keywords": [
+    "deep",
+    "diff",
+    "deep diff",
+    "deepdif"
+  ],
+  "author": "João Vilaça",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpggvilaca/obj-diff/issues"
+  },
+  "homepage": "https://github.com/jpggvilaca/obj-diff#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
