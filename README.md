@@ -27,9 +27,11 @@ leverage on shouldComponentUpdate to avoid unnecessary re-renders.
 ```import deepDiff from 'obj-deep-diff'```
 
 ### Use componentWillReceiveProps with it
-```componentWillReceiveProps(nextProps) {
+```
+componentWillReceiveProps(nextProps) {
   const result = deepDiff(this.props, nextProps);
 
+  // Log the result and identify the changes
   console.log(result);
 }
 ```
@@ -46,9 +48,10 @@ The 'result' object will look like this:
 ```
 
 ### Identify the bottlenecks and leverage shouldComponentUpdate
-```shouldComponentUpdate(nextState, nextProps) {
+```
+shouldComponentUpdate(nextState, nextProps) {
   // assume 'name' is a prop that changes all the time but it doesn't
-  // concern your component (it should re-render if that prop changes)
+  // concern your component (it shouldn't re-render if that prop changes)
   if (this.props.name !== nextProps.name) {
     return false
   }

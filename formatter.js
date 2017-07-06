@@ -1,4 +1,3 @@
-const testObjects = require('./testObjects');
 const filter = require('lodash/filter');
 const includes = require('lodash/includes');
 
