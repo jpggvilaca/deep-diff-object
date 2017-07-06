@@ -2,7 +2,6 @@ const testObjects = require('./testObjects');
 const filter = require('lodash/filter');
 const includes = require('lodash/includes');
 
-// Needs refactor
 // Takes two objects and outputs the same objects but with only the
 // common properties, ordered
 const formatter = function(obj_1, obj_2) {

@@ -10,7 +10,15 @@ const formatter = require('./formatter');
 // If detailed is set to true, then the changes object will show
 // not only the keys but also the values that changed
 function deepDiff(obj_1, obj_2, detailed) { // 3rd param is boolean
-  // Initialize final object
+  // Error handling
+  if (
+    !obj_1 ||
+    !obj_2 ||
+    Object.keys(obj_1).length === 0 ||
+    Object.keys(obj_2).length === 0
+  ) { throw 'Invalid parameters, you need to provide two objects'; }
+
+  // Initialize result object
   let result = {diff: false, changes: []};
 
   // Format the objects
@@ -64,17 +72,5 @@ function deepDiff(obj_1, obj_2, detailed) { // 3rd param is boolean
 
   return result;
 }
-
-// REMOVE THIS
-deepDiff(testObjects.obj_5, testObjects.obj_6);
-
-// TODO LIST: (REMOVE THIS)
-// Format both objects so they have the same properties and in the same order - done
-// Compare all the primitive types - done
-// Compare recursively
-// Refactor everything
-// Add tests
-// Test in on a react component
-// Upload it to npm
 
 module.exports = deepDiff;
