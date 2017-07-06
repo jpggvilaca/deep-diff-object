@@ -21,28 +21,30 @@ leverage on shouldComponentUpdate to avoid unnecessary re-renders.
 
 ## Usage
 ### Add it to your project
-npm install obj-deep-diff --save-dev
+```npm install obj-deep-diff --save-dev```
 
 ### Import it on your component
-import deepDiff from 'obj-deep-diff'
+```import deepDiff from 'obj-deep-diff'```
 
 ### Use componentWillReceiveProps with it
-componentWillReceiveProps(nextProps) {
+```componentWillReceiveProps(nextProps) {
   const result = deepDiff(this.props, nextProps);
 
   console.log(result);
 }
+```
 
 ### Identify the bottlenecks and leverage shouldComponentUpdate
-shouldComponentUpdate(nextState, nextProps) {
-  // assume 'name' is a prop that changes all the time but it doesnt
-  // concern your component
+```shouldComponentUpdate(nextState, nextProps) {
+  // assume 'name' is a prop that changes all the time but it doesn't
+  // concern your component (it should re-render if that prop changes)
   if (this.props.name !== nextProps.name) {
     return false
   }
 
   return true
 }
+```
 
 No more useless re-renders.
 
