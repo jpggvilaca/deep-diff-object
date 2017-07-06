@@ -1,4 +1,3 @@
-const testObjects = require('./testObjects');
 const formatter = require('./formatter');
 
 // Gets the changes between 2 objects
