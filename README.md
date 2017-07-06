@@ -61,7 +61,7 @@ shouldComponentUpdate(nextState, nextProps) {
 ```
 
 ### Parameters
-* deepdif(objectOne, objectTwo, detailed)
+* deepDiff(objectOne, objectTwo, detailed)
 
 * objectOne: Object | First object of the comparison
 * objectTwo: Object | Second object of the comparison

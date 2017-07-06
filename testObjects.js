@@ -47,4 +47,34 @@ module.exports = {
     movies: ['stuff'],
     category: 'example'
   },
+
+  obj_7: {
+    kg: 30,
+    miles: [2,5,7,8],
+    someMethod: function(stuff){
+      return 5;
+    },
+    stuff: 1231231,
+    deepStuff: {
+      color: 'red',
+      car: 'ibiza',
+      weight: 11
+    },
+    movies: ['stuff'],
+    category: 'example'
+  },
+
+  obj_8: {
+    miles: [2,5,7,8],
+    someMethod: function(stuff){
+      return 5;
+    },
+    deepStuff: {
+      color: 'blue',
+      car: 'ibiza',
+      weight: 11
+    },
+    movies: ['stuff'],
+    category: 'example'
+  },
 }

@@ -1,4 +1,5 @@
 const formatter = require('./formatter');
+const checkType = require('./checkType');
 
 // Gets the changes between 2 objects
 // Params:
@@ -25,8 +26,11 @@ function deepDiff(obj_1, obj_2, detailed) { // 3rd param is boolean
 
   // BEGIN MAIN LOOP
   for (i in one) {
+
+    // Check key type
+    let type = checkType(one[i]));
     // Check if array
-    if(Array.isArray(one[i])) {
+    if(type === 'Array') {
       for (let x = 0; x < one[i].length; x++) {
         if ((one[i][x] !== two[i][x])) {
           if (detailed) {
@@ -41,7 +45,7 @@ function deepDiff(obj_1, obj_2, detailed) { // 3rd param is boolean
     }
 
     // Check if function
-    if(typeof one[i] === 'function') {
+    if(type === 'Function') {
       if( one[i].toString() !== two[i].toString()) {
           if (detailed) {
             result.changes.push({ [i]: Array(one[i], two[i]) })
@@ -54,7 +58,7 @@ function deepDiff(obj_1, obj_2, detailed) { // 3rd param is boolean
     }
 
     // Check if string or number
-    if(one[i] !== two[i]) {
+    if(type === 'String' || type === 'Number') {
       if (detailed) {
         result.changes.push({ [i]: Array(one[i], two[i])});
       } else {
@@ -62,6 +66,11 @@ function deepDiff(obj_1, obj_2, detailed) { // 3rd param is boolean
       }
 
       continue;
+    }
+
+    // Check if it's an object
+    if(type === 'Object') {
+
     }
 
   }
