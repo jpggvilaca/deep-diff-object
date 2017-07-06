@@ -58,21 +58,13 @@ The 'result' object will look like this:
 ```
 
 ### Parameters
-deepdif(objectOne, objectTwo, detailed)
+* deepdif(objectOne, objectTwo, detailed)
 
-objectOne: Object | First object of the comparison
-objectTwo: Object | Second object of the comparison
-detailed: Boolean | If you want to know the keys AND the values that changed
+* objectOne: Object | First object of the comparison
+* objectTwo: Object | Second object of the comparison
+* detailed: Boolean | If you want to know the keys AND the values that changed
 
 No more useless re-renders.
 
-## TODO
-Format both objects so they have the same properties and in the same order - done
-Compare all the primitive types - done
-Compare recursively - doing
-Refactor everything
-Add tests
-Test in on a react component
-
-Found an issue? <link to issues>
-Want to contribute? <link to pull req>
+* Found an issue? https://github.com/jpggvilaca/deep-diff-object/issues
+* Want to contribute? Make a PR and I'll check it out!
