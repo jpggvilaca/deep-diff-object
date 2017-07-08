@@ -21,6 +21,10 @@ function isEqual(value1, value2, callback, key) {
   let type = checkType(value1);
 
   if(type === 'Array') {
+    if (value1.length !== value2.length) { return false; }
+  }
+
+  if(type === 'Array') {
     for (let x = 0; x < value1.length; x++) {
       if (checkType(value1[x]) === 'Object' && callback) {
         let result = callback(value1[x], value2[x], key);
@@ -28,9 +32,10 @@ function isEqual(value1, value2, callback, key) {
 
       else {
         for (let x = 0; x < value1.length; x++) {
-           if (value1[x] !== value2[x]) {
-            return false;
+          if (checkType(value1[x] === 'Function')) {
+            return value1.toString() !== value2.toString();
           }
+           return value1[x] !== value2[x];
         }
       }
     }
@@ -44,9 +49,7 @@ function isEqual(value1, value2, callback, key) {
   }
 
   else {
-    if( value1.toString() !== value2.toString()) {
-        return false;
-    }
+    return value1.toString() !== value2.toString();
   }
 
   return true;
