@@ -11,7 +11,7 @@ function hasOwn(obj, key) {
   return obj.hasOwnProperty(key);
 }
 
-// Check if two values are deepEqual regardless of its type 'key' here is an
+// Check if two values are deepEqual regardless of its type. 'key' here is an
 // attribute name, because if we're comparing objects I want to return the
 // differences from it but we need to know the name of the object itself.
 function isEqual(value1, value2, callback, key) {
@@ -22,8 +22,16 @@ function isEqual(value1, value2, callback, key) {
 
   if(type === 'Array') {
     for (let x = 0; x < value1.length; x++) {
-      if ((value1[x] !== value2[x])) {
-        return false;
+      if (checkType(value1[x]) === 'Object' && callback) {
+        let result = callback(value1[x], value2[x], key);
+      }
+
+      else {
+        for (let x = 0; x < value1.length; x++) {
+           if (value1[x] !== value2[x]) {
+            return false;
+          }
+        }
       }
     }
   }
