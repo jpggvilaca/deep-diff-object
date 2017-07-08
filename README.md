@@ -1,4 +1,4 @@
-# Object diffing
+# Object diffing (Work in progress)
 
 ## Philosophy
 The purpose of this package is to deep diff two objects.
@@ -38,13 +38,34 @@ componentWillReceiveProps(nextProps) {
 
 The 'result' object will look like this:
 ```
-{
-  diff: true, // If it's different or not
-  changes: {
-    1: ['name', 'age'] // Level 1, array of keys that are different
-    2: ...
-  }
+result = {
+  one: ['prop1': value1, 'prop2', value2, ...],
+  two: ['prop1': value1, 'prop2', value2, ...]
 }
+
+# Example:
+
+const objA = {
+  name: 'Wilson',
+  age: 33,
+  score: [2,5,7,8]
+};
+
+const objB = {
+  name: 'Barbara',
+  age: 31,
+  score: [2,5,7,8]
+};
+
+let result = deepDiff(objA, objB);
+
+The output would be:
+
+result = {
+  one: [ { name: 'Wilson' }, { age: 33 } ], // prop's that have changed
+  two: [ { name: 'Barbara' }, { age: 31 } ]
+}
+
 ```
 
 ### Identify the bottlenecks and leverage shouldComponentUpdate
@@ -61,13 +82,14 @@ shouldComponentUpdate(nextState, nextProps) {
 ```
 
 ### Parameters
-* deepDiff(objectOne, objectTwo, detailed)
+* deepDiff(objectOne, objectTwo)
 
 * objectOne: Object | First object of the comparison
 * objectTwo: Object | Second object of the comparison
-* detailed: Boolean | If you want to know the keys AND the values that changed
 
 No more useless re-renders.
 
 * Found an issue? https://github.com/jpggvilaca/deep-diff-object/issues
 * Want to contribute? Make a PR and I'll check it out!
+** Disclaimer: I know that there's a couple of packages that already do the same but I wanted to write my own. I also know that this "hack" wouldn't be
+necessary if the app's designed properly, but since that's not the case all the time, this could help.
