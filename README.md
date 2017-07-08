@@ -21,7 +21,7 @@ leverage on shouldComponentUpdate to avoid unnecessary re-renders.
 
 ## Usage
 ### Add it to your project
-```npm install obj-deep-diff --save-dev```
+```npm install deep-diff-object  --save-dev```
 
 ### Import it on your component
 ```import deepDiff from 'obj-deep-diff'```
@@ -39,8 +39,8 @@ componentWillReceiveProps(nextProps) {
 The 'result' object will look like this:
 ```
 result = {
-  one: ['prop1': value1, 'prop2', value2, ...],
-  two: ['prop1': value1, 'prop2', value2, ...]
+  one: [ {'prop1': value1}, {'prop2', value2}, ...],
+  two: [ {'prop1': value1}, {'prop2', value2}, ...]
 }
 
 # Example:
@@ -62,9 +62,9 @@ let result = deepDiff(objA, objB);
 The output would be:
 
 result = {
-  one: [ { name: 'Wilson' }, { age: 33 } ], // prop's that have changed
+  one: [ { name: 'Wilson' }, { age: 33 } ],
   two: [ { name: 'Barbara' }, { age: 31 } ]
-}
+} // name and age are different
 
 ```
 
@@ -91,5 +91,4 @@ No more useless re-renders.
 
 * Found an issue? https://github.com/jpggvilaca/deep-diff-object/issues
 * Want to contribute? Make a PR and I'll check it out!
-** Disclaimer: I know that there's a couple of packages that already do the same but I wanted to write my own. I also know that this "hack" wouldn't be
-necessary if the app's designed properly, but since that's not the case all the time, this could help.
+* Disclaimer: I know that this "hack" wouldn't be necessary if the app's designed properly, but since that's not the case all the time, this could help.
