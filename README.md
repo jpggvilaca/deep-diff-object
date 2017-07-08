@@ -1,4 +1,4 @@
-# Object diffing (Work in progress)
+# Object diffing
 
 ## Philosophy
 The purpose of this package is to deep diff two objects.
