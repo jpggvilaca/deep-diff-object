@@ -1,6 +1,6 @@
 {
   "name": "deep-diff-object",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "The purpose of this package is to deep diff two objects. This will, compare two objects and then output an object with all the changes between them.",
   "main": "index.js",
   "scripts": {},
