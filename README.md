@@ -24,7 +24,7 @@ leverage on shouldComponentUpdate to avoid unnecessary re-renders.
 ```npm install deep-diff-object  --save-dev```
 
 ### Import it on your component
-```import deepDiff from 'obj-deep-diff'```
+```import deepDiff from 'deep-diff-object'```
 
 ### Use componentWillReceiveProps with it
 ```
@@ -91,4 +91,3 @@ No more useless re-renders.
 
 * Found an issue? https://github.com/jpggvilaca/deep-diff-object/issues
 * Want to contribute? Make a PR and I'll check it out!
-* Disclaimer: I know that this "hack" wouldn't be necessary if the app's designed properly, but since that's not the case all the time, this could help.
