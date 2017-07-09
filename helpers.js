@@ -18,24 +18,26 @@ function isEqual(value1, value2, callback, key) {
   if (!value1 || !value2) { return false; }
 
   // We only need to compare one because they will have the same type
-  let type = checkType(value1);
+  const type = checkType(value1);
 
   if(type === 'Array') {
     if (value1.length !== value2.length) { return false; }
-  }
 
-  if(type === 'Array') {
     for (let x = 0; x < value1.length; x++) {
       if (checkType(value1[x]) === 'Object' && callback) {
         let result = callback(value1[x], value2[x], key);
+
+        if(!result.one.length) { return true; }
       }
 
       else {
         for (let x = 0; x < value1.length; x++) {
-          if (checkType(value1[x] === 'Function')) {
-            return value1.toString() !== value2.toString();
+          if (checkType(value1[x] === 'Function') && value1.toString() !== value2.toString()) {
+            return false;
           }
-           return value1[x] !== value2[x];
+           if (value1[x] !== value2[x]) {
+             return false;
+           };
         }
       }
     }
@@ -49,7 +51,9 @@ function isEqual(value1, value2, callback, key) {
   }
 
   else {
-    return value1.toString() !== value2.toString();
+    if( value1.toString() !== value2.toString()) {
+      return false;
+    }
   }
 
   return true;
