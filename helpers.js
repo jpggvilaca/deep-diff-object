@@ -1,7 +1,7 @@
 // Check value's data type (object,string,number,function)
 function checkType(data) {
-  const typeString = Object.prototype.toString.call(data).split(' ');
-  const type = typeString[1].slice(0, -1);
+  var typeString = Object.prototype.toString.call(data).split(' ');
+  var type = typeString[1].slice(0, -1);
 
   return type;
 }
@@ -15,27 +15,25 @@ function hasOwn(obj, key) {
 // attribute name, because if we're comparing objects I want to return the
 // differences from it but we need to know the name of the object itself.
 function isEqual(value1, value2, callback, key) {
-  if (!value1 || !value2) { return false; }
-
   // We only need to compare one because they will have the same type
-  const type = checkType(value1);
+  var type = checkType(value1);
 
   if(type === 'Array') {
     if (value1.length !== value2.length) { return false; }
 
-    for (let x = 0; x < value1.length; x++) {
+    for (var x = 0; x < value1.length; x++) {
       if (checkType(value1[x]) === 'Object' && callback) {
-        let result = callback(value1[x], value2[x], key);
+        var result = callback(value1[x], value2[x], key);
 
         if(!result.one.length) { return true; }
       }
 
       else {
-        for (let x = 0; x < value1.length; x++) {
+        for (var x = 0; x < value1.length; x++) {
           if (checkType(value1[x] === 'Function') && value1.toString() !== value2.toString()) {
             return false;
           }
-           if (value1[x] !== value2[x]) {
+           if (value1[x].toString() !== value2[x].toString()) {
              return false;
            };
         }
@@ -45,13 +43,13 @@ function isEqual(value1, value2, callback, key) {
 
   // If we're comparing objects, we need to go deep :kappa:
   else if (type === 'Object' && callback) {
-    let result = callback(value1, value2, key);
+    var result = callback(value1, value2, key);
 
     if(!result.one.length) { return true; }
   }
 
   else {
-    if( value1.toString() !== value2.toString()) {
+    if(value1.toString() !== value2.toString()) {
       return false;
     }
   }

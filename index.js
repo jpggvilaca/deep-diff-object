@@ -1,14 +1,14 @@
-const h = require('./helpers');
+var h = require('./helpers');
 
-let result = {
+var result = {
   one: [],
   two: []
 };
 
-const deepDiff = function(objA, objB, key) {
-  const keysA = Object.keys(objA);
+var deepDiff = function(objA, objB, key) {
+  var keysA = Object.keys(objA);
 
-  for (let i = 0; i < keysA.length; i++) {
+  for (var i = 0; i < keysA.length; i++) {
     if (h.hasOwn(objB, keysA[i]) && !h.isEqual(objA[keysA[i]], objB[keysA[i]], deepDiff, keysA[i])) {
       if (key) {
         result.one.push({ [key]: { [keysA[i]]: objA[keysA[i]] }});
