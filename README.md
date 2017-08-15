@@ -21,7 +21,7 @@ leverage on shouldComponentUpdate to avoid unnecessary re-renders.
 
 ## Usage
 ### Add it to your project
-```npm install deep-diff-object  --save-dev```
+```npm i -D deep-diff-object```
 
 ### Import it on your component
 ```import deepDiff from 'deep-diff-object'```
@@ -39,8 +39,16 @@ componentWillReceiveProps(nextProps) {
 The 'result' object will look like this:
 ```
 result = {
-  one: [ {'prop1': value1}, {'prop2', value2}, ...],
-  two: [ {'prop1': value1}, {'prop2', value2}, ...]
+  one: [
+    {'prop1': value1},
+    {'prop2', value2},
+    ...
+  ],
+  two: [
+    {'prop1': value1},
+    {'prop2', value2},
+    ...
+  ]
 }
 
 # Example:
@@ -57,7 +65,7 @@ const objB = {
   score: [2,5,7,8]
 };
 
-let result = deepDiff(objA, objB);
+const result = deepDiff(objA, objB);
 
 The output would be:
 
