@@ -41,15 +41,16 @@ The 'result' object will look like this:
 result = {
   one: [
     {'prop1': value1},
-    {'prop2', value2},
+    {'prop2': value2},
     ...
   ],
   two: [
     {'prop1': value1},
-    {'prop2', value2},
+    {'prop2': value2},
     ...
-  ]
-}
+  ],
+  ...
+};
 
 # Example:
 
@@ -72,7 +73,7 @@ The output would be:
 result = {
   one: [ { name: 'Wilson' }, { age: 33 } ],
   two: [ { name: 'Barbara' }, { age: 31 } ]
-} // name and age are different
+}; // name and age are different
 
 ```
 
@@ -82,20 +83,11 @@ shouldComponentUpdate(nextState, nextProps) {
   // assume 'name' is a prop that changes all the time but it doesn't
   // concern your component (it shouldn't re-render if that prop changes)
   if (this.props.name !== nextProps.name) {
-    return false
+    return false;
   }
 
-  return true
+  return true;
 }
 ```
-
-### Parameters
-* deepDiff(objectOne, objectTwo)
-
-* objectOne: Object | First object of the comparison
-* objectTwo: Object | Second object of the comparison
-
-No more useless re-renders.
-
 * Found an issue? https://github.com/jpggvilaca/deep-diff-object/issues
 * Want to contribute? Make a PR and I'll check it out!

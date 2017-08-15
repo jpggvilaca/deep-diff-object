@@ -13,7 +13,7 @@ function hasOwn(obj, key) {
 
 // Check if two values are deepEqual regardless of its type. 'key' here is an
 // attribute name, because if we're comparing objects we want to return the
-// differences from it but we need to know the name of the object itself.
+// differences from it but we need to know the name of the attribute itself.
 function isEqual(value1, value2, callback, key) {
   // We only need to compare one because they will have the same type
   var type = checkType(value1);
