@@ -7,6 +7,8 @@ all the changes between them.
 
 The intent was to use it with React but it can be used solo.
 
+If you're interested in React performance, you should check `https://github.com/maicki/why-did-you-update` out.
+
 In order to improve a react component performance the method that's
 often used is 'shouldComponentUpdate', but like the internet says
 it's often dangerous and if used poorly it can break your component.
