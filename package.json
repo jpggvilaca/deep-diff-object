@@ -22,7 +22,5 @@
     "url": "https://github.com/jpggvilaca/deep-diff-object/issues"
   },
   "homepage": "https://github.com/jpggvilaca/deep-diff-object#readme",
-  "dependencies": {
-    "lodash": "^4.17.4"
-  }
+  "dependencies": {}
 }

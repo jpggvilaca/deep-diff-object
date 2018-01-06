@@ -1,5 +1,5 @@
 // Check value's data type (object, string, number, function)
-function checkType(data) {
+var checkType = function(data) {
   var typeString = Object.prototype.toString.call(data).split(' ');
   var type = typeString[1].slice(0, -1);
 
@@ -7,14 +7,16 @@ function checkType(data) {
 }
 
 // Self explanatory
-function hasOwn(obj, key) {
+var hasOwn = function(obj, key) {
   return obj.hasOwnProperty(key);
 }
 
-// Check if two values are deepEqual regardless of its type. 'key' here is an
-// attribute name, because if we're comparing objects we want to return the
-// differences from it but we need to know the name of the attribute itself.
-function isEqual(value1, value2, callback, key) {
+/**
+  Check if two values are deepEqual regardless of its type. 'key' here is an
+  attribute name, because if we're comparing objects we want to return the
+  differences from it but we need to know the name of the attribute itself.
+**/
+var isEqual = function(value1, value2, callback, key) {
   // We only need to compare one because they will have the same type
   var type = checkType(value1);
 
