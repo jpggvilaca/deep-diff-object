@@ -1,18 +1,24 @@
-var h = require('./helpers');
+const h = require('./helpers');
 
-var result = {
+const result = {
   one: [],
   two: []
 };
 
-var deepDiff = function(objA, objB, key) {
-  var keysA = Object.keys(objA);
+const deepDiff = function(objA, objB, key) {
+  // Get all the keys from the first object
+  // We will only compare the the same keys on the second object because all
+  // the other keys that are not present on both objects are differences
+  const keysA = Object.keys(objA);
 
-  for (var i = 0; i < keysA.length; i++) {
+  for (let i = 0; i < keysA.length; i++) {
+    // If the second object has the current key
+    // && If they are not equal
     if (
       h.hasOwn(objB, keysA[i]) &&
       !h.isEqual(objA[keysA[i]], objB[keysA[i]], deepDiff, keysA[i])
     ) {
+      // If ... (TBD)
       if (key) {
         result.one.push({ [key]: { [keysA[i]]: objA[keysA[i]] }});
         result.two.push({ [key]: { [keysA[i]]: objB[keysA[i]] }});
