@@ -26,7 +26,16 @@
   },
   "homepage": "https://github.com/jpggvilaca/deep-diff-object#readme",
   "dependencies": {},
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/tests/**",
+      "!**/node_modules/**",
+      "!**/coverage/**"
+    ]
+  },
   "devDependencies": {
+    "eslint": "^5.16.0",
     "jest": "^24.8.0",
     "prettier": "^1.17.1"
   }
