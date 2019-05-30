@@ -60,6 +60,8 @@ result = {
 }; // name and age are different
 ```
 
+*NOTE* You can also run `node tests/debug` to try it out first.
+
 #### (React part, this was the original intent)
 In order to improve a react component performance the method that's
 often used is 'shouldComponentUpdate', but like the internet says
