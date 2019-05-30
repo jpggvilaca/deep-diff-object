@@ -28,8 +28,12 @@ const isEqual = function(value1, value2, callback, key) {
       }
 
       // If the element is an object, we need to recursively check that object
-      if (isObject(value1[x])) {
+      else if (isObject(value1[x])) {
         callback(value1[x], value2[x], key);
+      }
+
+      else if (value1.toString() !== value2.toString()) {
+        return false;
       }
     }
   }

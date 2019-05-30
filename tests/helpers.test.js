@@ -1,7 +1,6 @@
-const { hasOwn, isEqual } = require('../helpers');
+const hasOwn = require('../hasOwn');
+const isEqual = require('../isEqual');
 const isArray = require('../isArray');
-const isNumber = require('../isNumber');
-const isString = require('../isString');
 const isObject = require('../isObject');
 const {
   OneLevel_1,
@@ -27,40 +26,9 @@ describe('Helpers', () => {
       });
     });
 
-    describe('isNumber', () => {
-      it('should return false if the argument is not a number', () => {
-        expect(isNumber([])).toBe(false);
-        expect(isNumber('string')).toBe(false);
-        expect(isNumber('235')).toBe(false);
-        expect(isNumber('235.50')).toBe(false);
-        expect(isNumber({})).toBe(false);
-        expect(isNumber(() => {})).toBe(false);
-      });
-
-      it('should return true if the argument is a number', () => {
-        expect(isNumber(213)).toBe(true);
-        expect(isNumber(213.5)).toBe(true);
-        expect(isNumber(-213.5)).toBe(true);
-      });
-    });
-
-    describe('isString', () => {
-      it('should return false if the argument is not a string', () => {
-        expect(isString([])).toBe(false);
-        expect(isString(235.5)).toBe(false);
-        expect(isString(235)).toBe(false);
-        expect(isString({})).toBe(false);
-        expect(isString(() => {})).toBe(false);
-      });
-
-      it('should return true if the argument is a string', () => {
-        expect(isString('')).toBe(true);
-        expect(isString('string')).toBe(true);
-      });
-    });
-
     describe('isObject', () => {
       it('should return false if the argument is not an object', () => {
+        expect(isObject(null)).toBe(false);
         expect(isObject([])).toBe(false);
         expect(isObject(235.5)).toBe(false);
         expect(isObject(235)).toBe(false);
@@ -106,4 +74,10 @@ describe('Helpers', () => {
       expect(hasOwn(mockObject, 'age')).toEqual(true);
     });
   });
+
+  // describe('isEqual', () => {
+  //   it('should thrown an error if no sufficent parameters are passed', () => {
+      
+  //   });
+  // });
 });
