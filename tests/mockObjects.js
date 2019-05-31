@@ -4,10 +4,7 @@
 
 const OneLevel_1 = {
   name: "Donnie Darko",
-  age: 3,
-  changeAges: function(ages) {
-    this.ages = ages * 1;
-  }
+  age: 3
 };
 
 const OneLevel_1_Copy = {
@@ -17,10 +14,7 @@ const OneLevel_1_Copy = {
 
 const OneLevel_1_Different = {
   name: "Donnie Darko",
-  age: 5,
-  changeCenas: function(cenas) {
-    this.ages = cenas * 3;
-  },
+  age: 5
 };
 
 const OneLevel_2 = {
@@ -30,7 +24,30 @@ const OneLevel_2 = {
     this.ages = ages * 1;
   },
   score: 10.4,
-  description: "yo"
+  description: "yo",
+  request: {}
+};
+
+const OneLevel_2_Copy = {
+  name: "Fight Club",
+  age: 4,
+  changeAges: function(ages) {
+    this.ages = ages * 1;
+  },
+  score: 10.4,
+  description: "yo",
+  request: {}
+};
+
+const OneLevel_2_Different = {
+  name: "Fight Club",
+  age: 4,
+  changeNames: function(names) {
+    this.names = names * 1;
+  },
+  score: 15,
+  description: "yo diff",
+  request: { score: 1 }
 };
 
 const OneLevel_3 = {
@@ -89,6 +106,8 @@ module.exports = {
   OneLevel_1_Copy,
   OneLevel_1_Different,
   OneLevel_2,
+  OneLevel_2_Copy,
+  OneLevel_2_Different,
   OneLevel_3,
   TwoLevels_1,
   TwoLevels_1_Copy,

@@ -2,12 +2,6 @@ const hasOwn = require('../hasOwn');
 const isEqual = require('../isEqual');
 const isArray = require('../isArray');
 const isObject = require('../isObject');
-const {
-  OneLevel_1,
-  OneLevel_1_Copy,
-  OneLevel_2,
-  OneLevel_3,
-} = require('./mockObjects');
 
 describe('Helpers', () => {
   describe('Type checkers', () => {
@@ -75,9 +69,26 @@ describe('Helpers', () => {
     });
   });
 
-  // describe('isEqual', () => {
-  //   it('should thrown an error if no sufficent parameters are passed', () => {
-      
-  //   });
-  // });
+  describe('isEqual', () => {
+    it('should compare strings properly', () => {
+      expect(isEqual('', '')).toEqual(true);
+      expect(isEqual('stringone', 'stringtwo')).toEqual(false);
+      expect(isEqual('stringone', '')).toEqual(false);
+      expect(isEqual('', 'stringtwo')).toEqual(false);
+      expect(isEqual('string', 'string')).toEqual(true);
+    });
+
+    it('should compare numbers properly', () => {
+      expect(isEqual(1, 1)).toEqual(true);
+      expect(isEqual(1, 2)).toEqual(false);
+    });
+
+    it('should compare arrays properly', () => {
+      expect(isEqual([], [])).toEqual(true);
+      expect(isEqual([1, 2, 3], [1, 2, 3])).toEqual(true);
+      expect(isEqual([1, 2, 3, 4], [1, 2, 3])).toEqual(false);
+      expect(isEqual([4, 3, 2, 1], [4, 2, 3, 1])).toEqual(false);
+      expect(isEqual([2, 5, 6, 7], [7, 6, 5, 4])).toEqual(false);
+    });
+  });
 });
