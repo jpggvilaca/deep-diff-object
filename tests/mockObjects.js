@@ -58,7 +58,29 @@ const OneLevel_3 = {
   },
   score: 6.4,
   description: "",
-  request: {}
+  list: [[1, 2, 3], [4, 5, 6]]
+};
+
+const OneLevel_3_Copy = {
+  name: "Donnie Darko",
+  age: 3,
+  changeName: function(name) {
+    this.name = name;
+  },
+  score: 6.4,
+  description: "",
+  list: [[1, 2, 3], [4, 5, 6]]
+};
+
+const OneLevel_3_Different = {
+  name: "Donnie Darko",
+  age: 3,
+  changeName: function(name) {
+    this.name = name;
+  },
+  score: 6.4,
+  description: "",
+  list: [[44, 33, 11], [0, 0, 0]]
 };
 
 /** 
@@ -109,6 +131,8 @@ module.exports = {
   OneLevel_2_Copy,
   OneLevel_2_Different,
   OneLevel_3,
+  OneLevel_3_Copy,
+  OneLevel_3_Different,
   TwoLevels_1,
   TwoLevels_1_Copy,
   TwoLevels_1_Different,
