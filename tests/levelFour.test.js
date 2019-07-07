@@ -20,10 +20,10 @@ describe('deepDiff', () => {
     it('should return the result with the correct differences', () => {
       const result = deepDiff(TwoLevels_1, TwoLevels_1_Different);
 
-      // expect(result).toEqual({
-      //   one: [{ list: [[1, 2, 3], [4, 5, 6]] }],
-      //   two: [{ list: [[44, 33, 11], [0, 0, 0]] }],
-      // });
+      expect(result).toEqual({
+        one: [{ age: 3 }, { score: { home: [1, 2, 3], away: 'cenas' } }],
+        two: [{ age: 5 }, { score: { home: [4, 1, 0], away: 'cenas 2' } }],
+      });
     });
   });
 });

@@ -25,12 +25,10 @@ describe('deepDiff', () => {
         one: [
           { score: 10.4 },
           { description: 'yo' },
-          { request: {} }
         ],
         two: [
           { score: 15 },
           { description: 'yo diff' },
-          { request: { score: 1 } },
         ],
       });
     });
